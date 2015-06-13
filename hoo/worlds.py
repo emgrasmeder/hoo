@@ -8,4 +8,4 @@ class World:
     @classmethod
     def g(cls, arg):
         if arg > cls.id:
-            cls.id = arg  # would the the same as  Test.i = arg1
+            cls.id = arg  # would the the same as  World.i = arg1
