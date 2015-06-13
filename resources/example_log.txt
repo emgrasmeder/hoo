@@ -1,0 +1,1 @@
+# Unless PyABM has some really relevant logging functions, it might make sense to load example (or real) data to the resources folder. <open call for opinions>
