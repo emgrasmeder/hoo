@@ -22,8 +22,8 @@ def parse_args(argv=None):
 def main(argv=None):
     params = parse_args(argv)
     if params.agents < 1:
-        raise (Exception ("Model requires at least two agents, got {} instead."
-                          .format(params.agents)))
+        raise Exception("Model requires at least two agents, got {} instead."
+                        .format(params.agents))
 
 
 
