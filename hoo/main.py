@@ -1,5 +1,5 @@
 import argparse
-
+from simulation import simulate
 
 def parse_args(argv=None):
     parser = argparse.ArgumentParser(
@@ -13,6 +13,7 @@ def parse_args(argv=None):
                         # action="store_true",
                         help="Specify the number of agents to instantiate")
 
+
     if argv is not None:  # to mock terminal input, for functional tests
         args = parser.parse_args(argv)
     else:
@@ -24,6 +25,8 @@ def main(argv=None):
     if params.agents < 1:
         raise Exception("Model requires at least two agents, got {} instead."
                         .format(params.agents))
+    else:
+        simulate(**params.__dict__)
 
 
 
