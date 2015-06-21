@@ -13,6 +13,7 @@ class TestCarBasicFunctionality(TestCase):
         self.assertIsNotNone(car.y_loc)
         self.assertIsNotNone(car.speed)
         self.assertIsNotNone(car.direction)
+        self.assertIsNotNone(car.direction_to_vector)
 
 class Test_AccelerateChangesCarsLocation(TestCase):
     def test_cars_without_directions_cant_accelerate(self):
@@ -22,12 +23,17 @@ class Test_AccelerateChangesCarsLocation(TestCase):
 
     def test_that_the_car_can_drive_north(self):
         car = cars.Car()
-        car.direction=0
+        car.direction = 0
         old_location = tuple((car.x_loc, car.y_loc))
+
         car.accelerate(random.choice([x*.01 for x in range(1,99)]))
         new_location = tuple((car.x_loc, car.y_loc))
         self.assertNotEqual(old_location, new_location)
 
+
+class Test_DirectionToVector(TestCase):
+    def test_converts_radians_to_accelerator_premultiplier(self):
+        self.assertFalse(True)
 
 if __name__ == "__main__":
     main()
