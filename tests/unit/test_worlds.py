@@ -15,6 +15,20 @@ class TestWorldExists(TestCase):
         else:
             self.assertEqual(world.id, 3)
 
+class Test_Step(TestCase):
+    def test_step_updates_last_step_time(self):
+        import time
+        earth = worlds.World()
+        initial_step = earth.last_step
+        time.sleep(1.1)
+        self.assertEqual(initial_step, earth.last_step)
+        earth.step(11)
+        for i in range(10):
+            self.assertNotEqual(initial_step, earth.last_step)
+
+    def test_step_can_be_limited_with_a_steps_Arg(self):
+        self.assertIsNone(worlds.World().step(1))
+
 
 
 if __name__ == "__main__":
