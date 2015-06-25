@@ -15,6 +15,7 @@ class TestCarBasicFunctionality(TestCase):
         self.assertIsNotNone(car.direction)
         self.assertIsNotNone(car.direction_to_vector)
 
+
 class Test_AccelerateChangesCarsLocation(TestCase):
     def test_cars_without_directions_cant_accelerate(self):
         car = cars.Car()
@@ -34,6 +35,48 @@ class Test_AccelerateChangesCarsLocation(TestCase):
 class Test_DirectionToVector(TestCase):
     def test_converts_radians_to_accelerator_premultiplier(self):
         self.assertFalse(True)
+
+class Test_Car_exists_in_space_time_continuum(TestCase):
+    def test_drive_changes_cars_location(self):
+        tesla = cars.Car()
+        initial_x, initial_y = tesla.x_loc, tesla.y_loc
+        tesla.drive(steps=10)
+        self.assertNotEqual((initial_x, initial_y),
+                            (tesla.x_loc, tesla.y_loc))
+
+    def test_drive_changes_location_as_fn_input(self):
+        car1 = cars.Car()
+        car2 = cars.Car()
+        self.assertEqual((car1.x_loc, car1.y_loc),
+                         (car2.x_loc, car2.y_loc))
+        car1.drive(steps=1)
+        car2.drive(steps=10)
+        self.assertNotEqual((car1.x_loc, car1.y_loc),
+                            (car2.x_loc, car2.y_loc))
+
+
+    def test_drive_distance_is_steps_times_size(self):
+        fiat = cars.Car()
+        mercedes = cars.Car()
+        fiat.drive(steps=10, speed=100)
+        mercedes.drive(steps=10, speed=10)
+        self.assertLess(mercedes.y_loc, fiat.y_loc)
+
+    def test_drive_direction_affects_x_and_y_magnitues(self):
+        accord = cars.Car()
+        accord.direction=30
+        accord.drive(speed=109.8)
+        self.assertEqual(accord.x_loc, 95)
+        self.assertEqual(accord.y_loc, 55)
+
+    def test_premultiplier_does_its_math_right(self):
+        car = cars.Car()
+        x, y = car.dist_premultiplier(degrees=30, distance=109.8)
+        self.assertEqual(x, 95)
+        self.assertEqual(y, 55)
+
+
+>>>>>>> master
 
 if __name__ == "__main__":
     main()
