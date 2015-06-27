@@ -3,39 +3,40 @@ class Car:
         self.x_loc = 0
         self.y_loc = 0
         self.speed = 0
-        self.direction = None
+        self.direction = 0
 
-    def direction_to_vector(self):
-        pass
-    def accelerate(self, acc_percent):
-        if self.direction is None:
-            raise(AttributeError, "Acceleration function requires `direction`")
-        else:
-            pass
 
     def dist_premultiplier(self, degrees, distance):
-        from sympy import solve, symbols
-        from math import tan, radians
-        a, b = symbols("a b")
-        j, k = solve([(a/b)-(tan(radians(degrees))),
-                      (a**2+b**2)-distance**2],
-                     [a, b])
-        x = round(abs(k[1]))
-        y = round(abs(j[0]))
-        print("x:{}".format(x))
-        print("y:{}".format(y))
-        return x, y
-
+        from math import sin, cos, radians
+        hypotenuse = distance
+        degrees = degrees % 360
+        y_dist = round(hypotenuse * sin(radians(degrees)), 2)
+        x_dist = round(hypotenuse * cos(radians(degrees)), 2)
+        print("a2 + b2 = {}".format(round((x_dist**2) + (y_dist**2))))
+        print("d2 = {}".format(distance**2))
+        assert round((x_dist**2) + (y_dist**2)) == round(distance**2)
+        if degrees in [0, 360]:
+            x_dist = distance
+            y_dist = 0
+        if degrees == 90:
+            x_dist = 0
+            y_dist = distance
+        if degrees == 180:
+            x_dist = -1 * distance
+            y_dist = 0
+        if degrees == 270:
+            x_dist = 0
+            y_dist = -1 * distance
+        print("x_dist: {}".format(x_dist))
+        print("y_dist: {}".format(y_dist))
+        return x_dist, y_dist
 
 
     def drive(self, steps=1, speed=1):
         """
-        Here's the mapping I want:
-        0 -> 100% y, 0% x
-        45 -> 50% y, 50% x
-        90 -> 0% y, 100% x
-        135 -> -50% y, 50% x
         """
-        x_dist, y_dist = self.dist_premultiplier(self.direction, distance=speed)
+
+        x_dist, y_dist = self.dist_premultiplier(self.direction,
+                                                 distance=speed)
         self.x_loc += steps * x_dist
         self.y_loc += steps * y_dist
