@@ -14,7 +14,7 @@ class Car:
         x_dist = round(hypotenuse * cos(radians(degrees)), 2)
         print("a2 + b2 = {}".format(round((x_dist**2) + (y_dist**2))))
         print("d2 = {}".format(distance**2))
-        assert round((x_dist**2) + (y_dist**2)) == round(distance**2)
+        assert round((x_dist**2) + (y_dist**2)) == round(hypotenuse**2)
         if degrees in [0, 360]:
             x_dist = distance
             y_dist = 0
