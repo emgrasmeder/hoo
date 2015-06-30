@@ -10,11 +10,12 @@ class Road:
             self.paved_zones.append((x_offset, y_offset))
 
 class Pavement(Road):
-    def __init__(self):
-        Road.__init__(self, bottom_left=[0, 0],
-                            top_left=[0, 1],
-                            top_right=[1, 1],
-                            bottom_right=[1, 0])
+    def __init__(self,
+                 bottom_left=[0, 0],
+                 top_left=[0, 1],
+                 top_right=[1, 1],
+                 bottom_right=[1, 0]):
+        Road.__init__(self)
         self.bottom_left = bottom_left
         self.top_left = top_left
         self.top_right = top_right
