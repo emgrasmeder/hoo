@@ -11,8 +11,6 @@ class PresetAngles(TestCase):
         self.sqrt2 = round(2**.5)
 
 
-
-
 class Test_UnitCircle_QuadrantOne(PresetAngles):
     def test_pi_over_six(self):
         car = cars.Car()

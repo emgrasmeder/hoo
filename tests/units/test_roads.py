@@ -16,7 +16,12 @@ class TestRoadBasics(TestCase):
 class Test_Instantiate(TestCase):
     def test_road_is_upside_up(self):
         road = roads.Road()
-        self.assert()
+        self.assertGreater(road.x_right, road.x_left)
+        self.assertGreater(road.y_down, road.y_down)
+
+    def test_road_is_upside_up(self):
+        road = roads.Road()
+        self.assertGreater(road.x_right, road.x_left)
 
 if __name__ == "__main__":
     main()
