@@ -35,8 +35,8 @@ class Test_contains(TestCase):
         pavement = roads.Pavement(top_left=[0, 10],
                                   top_right=[10, 10],
                                   bottom_right=[10, 0])
-
-
+        self.assertTrue(pavement.contains(x_offset=2, y_offset=2, size=1))
+        self.assertFalse(pavement.contains(x_offset=100, y_offset=100, size=1))
 
 
 if __name__ == "__main__":
