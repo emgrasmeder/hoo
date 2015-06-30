@@ -11,14 +11,24 @@ class TestRoadBasics(TestCase):
         self.assertIsNotNone(road.total_distance)
         self.assertIsNotNone(road.total_lanes)
         self.assertIsNotNone(road.speed_limit)
-        self.assertIsNotNone(road.paved_zone)
+        self.assertIsNotNone(road.paved_zones)
 
 class Test_Instantiate(TestCase):
     def test_only_one_pavement_can_occupy_a_space(self):
         road = roads.Road()
-        first_pavement = road.build_pavement((0, 0), (1, 1))
-        second_pavement = road.build_pavement((0, 0), (1, 1))
+        self.assertEqual(len(road.paved_zones), 0)
+        road.lay_pavement((0, 0), (1, 1))
         self.assertEqual(len(road.paved_zones), 1)
+        road.lay_pavement((0, 0), (1, 1))
+        self.assertEqual(len(road.paved_zones), 1)
+        road.lay_pavement((1, 1), (2, 2))
+        self.assertEqual(len(road.paved_zones), 2)
+        road.lay_pavement((0, 0), (2, 2))
+        self.assertEqual(len(road.paved_zones), 2)
+
+    def test_pavement_is_square_requiring_bottom_left_as_input(self):
+        road = roads.Road()
+        p = None
 
 
     # def test_road_is_upside_up(self):
