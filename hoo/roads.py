@@ -5,12 +5,18 @@ class Road:
         self.speed_limit = 0
         self.paved_zones = []
 
-    def lay_pavement(self, bottom_left, top_right=None, size=None):
-        # if not top_right and not size:
-        #     top_right = [bottom_left[0] + 1,
-        #                  bottom_left[1] + 1]
-        # new_pavement_x_bounds = [bottom_left[0], top_right[0]]
-        # new_pavement_y_bounds = [bottom_left[1], top_right[1]]
+    def lay_pavement(self, x_offset, y_offset, size=1):
+        if (x_offset, y_offset) not in self.paved_zones:
+            self.paved_zones.append((x_offset, y_offset))
 
-        if (bottom_left, top_right) not in self.paved_zones:
-            self.paved_zones.append((bottom_left, top_right))
+class Pavement(Road):
+    def __init__(self):
+        self.bottom_left = (0, 0)
+        self.top_left = (0, 1)
+        self.top_right = (1, 1)
+        self.bottom_right = (1, 0)
+
+    def contains(self, x_offset, y_offset, size=1):
+        pass
+
+

@@ -17,18 +17,23 @@ class Test_Instantiate(TestCase):
     def test_only_one_pavement_can_occupy_a_space(self):
         road = roads.Road()
         self.assertEqual(len(road.paved_zones), 0)
-        road.lay_pavement((0, 0), (1, 1))
+        road.lay_pavement(0, 0)
         self.assertEqual(len(road.paved_zones), 1)
-        road.lay_pavement((0, 0), (1, 1))
+        road.lay_pavement(0, 0)
+
+    def test_adding_a_new_pavement_increases_the_count(self):
+        road = roads.Road()
+        road.lay_pavement(0, 0)
         self.assertEqual(len(road.paved_zones), 1)
-        road.lay_pavement((1, 1), (2, 2))
-        self.assertEqual(len(road.paved_zones), 2)
-        road.lay_pavement((0, 0), (2, 2))
+        road.lay_pavement(1, 1)
         self.assertEqual(len(road.paved_zones), 2)
 
-    def test_pavement_is_square_requiring_bottom_left_as_input(self):
+    def test_size_param_creates_larger_pavement(self):
         road = roads.Road()
-        p = None
+        road.lay_pavement(10, 10, size=2)
+        self.assertEqual(len(road.paved_zones), 1)
+        road.lay_pavement(11, 11)
+        self.assertEqual(len(road.paved_zones), 1)
 
 
     # def test_road_is_upside_up(self):
