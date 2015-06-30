@@ -11,6 +11,7 @@ class Road:
 
 class Pavement(Road):
     def __init__(self):
+        Road.__init__(self)
         self.bottom_left = (0, 0)
         self.top_left = (0, 1)
         self.top_right = (1, 1)
