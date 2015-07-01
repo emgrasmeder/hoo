@@ -22,6 +22,6 @@ class Pavement(Road):
         self.bottom_right = bottom_right
 
     def contains(self, x_offset, y_offset, size=1):
-        pass
+        return True
 
 
