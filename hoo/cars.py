@@ -1,10 +1,16 @@
+from hoo import roads
+
 class Car:
-    def __init__(self):
+    def __init__(self, road=None):
+
+        self.road = road
         self.x_loc = 0
         self.y_loc = 0
         self.speed = 0
         self.direction = 0
 
+        if not self.road:
+            self.road = roads.Road()
 
     def dist_premultiplier(self, degrees, distance):
         from math import sin, cos, radians
@@ -31,12 +37,11 @@ class Car:
         print("y_dist: {}".format(y_dist))
         return x_dist, y_dist
 
-
-    def drive(self, steps=1, speed=1):
+    def drive(self, speed=1):
         """
         """
 
         x_dist, y_dist = self.dist_premultiplier(self.direction,
                                                  distance=speed)
-        self.x_loc += steps * x_dist
-        self.y_loc += steps * y_dist
+        self.x_loc += x_dist
+        self.y_loc += y_dist
