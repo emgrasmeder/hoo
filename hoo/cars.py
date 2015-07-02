@@ -41,5 +41,6 @@ class Car:
             self.direction = direction
         x_dist, y_dist = self.dist_premultiplier(self.direction,
                                                  distance=speed)
+
         self.x_loc += x_dist
         self.y_loc += y_dist

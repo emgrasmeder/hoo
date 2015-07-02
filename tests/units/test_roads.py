@@ -1,6 +1,6 @@
 from unittest import TestCase, main
 import random
-from hoo import roads
+from hoo import roads, cars
 
 class TestRoadBasics(TestCase):
     def test_road_is_road_object(self):
@@ -12,6 +12,32 @@ class TestRoadBasics(TestCase):
         self.assertIsNotNone(road.total_lanes)
         self.assertIsNotNone(road.speed_limit)
         self.assertIsNotNone(road.paved_area)
+
+
+class Test_out_of_bounds(TestCase):
+    def test_long_line_is_out_of_bounds(self):
+        road = roads.Road()
+        proposed_line = [[-1000, -1000], [1000, 1000]]
+        self.assertIsNotNone(road.out_of_bounds(proposed_line))
+
+    def test_y_equals_zero_in_triangle(self):
+        car = cars.Car()
+        car.road.paved_area["upper_left"] = (0, 100)
+        car.road.paved_area["upper_left"] = (0, 100)
+        car.road.paved_area["bottom_left"] = (-100, -100)
+        car.road.paved_area["bottom_right"] = (100, -100)
+        for i in range(1000):
+            car.drive(direction=0)
+            self.assertLess(car.x_loc, 50)
+            self.assertEqual(car.y_loc, 0)
+
+        for i in range(1000):
+            car.drive(direction=180)
+            self.assertGreater(car.x_loc, -50)
+            self.assertEqual(car.y_loc, 0)
+
+
+
 
 # class Test_Instantiate(TestCase):
 #     def test_only_one_pavement_can_occupy_a_space(self):
