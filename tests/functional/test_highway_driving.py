@@ -31,6 +31,7 @@ class Test_CarsGoOnRoads(TestCase):
         # until it comes to a dead end, in which case it
         # picks a new direction and carries on
 
+        #first we make sure the car doesn't leave the confines of the road
         for i in range(1000):
             car.drive()
             self.assertLessEqual(car.y_loc, 100)
@@ -38,7 +39,15 @@ class Test_CarsGoOnRoads(TestCase):
             self.assertLessEqual(car.x_loc, 100)
             self.assertGreaterEqual(car.x_loc, -100)
 
-
+        #then we make sure the car is bumbling around continuously
+        car = cars.Car()
+        for i in range(1000):
+            x, y = car.x_loc, car.y_loc
+            car.drive()
+            self.assertTrue(
+                any([x != car.x_loc,
+                     y != car.y_loc]
+                    ))
 
 if __name__ == "__main__":
     main()
