@@ -8,3 +8,9 @@ I like to imagine what the world will be like when cars can drive themselves, bu
 Agent based modeling is a simulation technique where the simulator creates a number of autonomous `agents` who can interact with each other in various ways. Typically the agents have a number of parameters that can be altered to study the impact of different variables in the system. 
 
 In this project, the agents are, for the most part, cars on a road. Each car is an instance of an object which has a speed, a direction, and a location. We can then, for instance give each car a `following_distance` parameter and study the effects on traffic of increasing or decreasing. 
+
+
+This project is being written in and only supported for Python 3. 
+Some of the possible dependencies are: 
+- python3
+- shapely
