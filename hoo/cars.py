@@ -48,7 +48,7 @@ class Car:
                                                       [x_loc, y_loc]]):
             self.x_loc, self.y_loc = x_loc, y_loc
         else:
-            pass
+            self.direction += 30
             #print("No. I'd be driving off the road.")
 
 

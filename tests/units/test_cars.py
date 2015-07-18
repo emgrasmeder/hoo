@@ -18,7 +18,7 @@ class Test_Car_exists_in_space_time_continuum(TestCase):
     def test_drive_changes_cars_location(self):
         tesla = cars.Car()
         initial_x, initial_y = tesla.x_loc, tesla.y_loc
-        tesla.drive(steps=10)
+        tesla.drive()
         self.assertNotEqual((initial_x, initial_y),
                             (tesla.x_loc, tesla.y_loc))
 
@@ -27,8 +27,8 @@ class Test_Car_exists_in_space_time_continuum(TestCase):
         car2 = cars.Car()
         self.assertEqual((car1.x_loc, car1.y_loc),
                          (car2.x_loc, car2.y_loc))
-        car1.drive(steps=1)
-        car2.drive(steps=10)
+        car1.drive(1)
+        car2.drive(10)
         self.assertNotEqual((car1.x_loc, car1.y_loc),
                             (car2.x_loc, car2.y_loc))
 
