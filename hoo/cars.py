@@ -37,6 +37,7 @@ class Car:
     def drive(self, speed=1, direction=None):
         """
         """
+
         if isinstance(direction, int):
             self.direction = direction
         x_dist, y_dist = self.dist_premultiplier(self.direction,
@@ -47,8 +48,8 @@ class Car:
         if not self.road.out_of_bounds(proposed_line=[[self.x_loc, self.y_loc],
                                                       [x_loc, y_loc]]):
             self.x_loc, self.y_loc = x_loc, y_loc
+            # print("(x,y) = ({},{})".format(self.x_loc, self.y_loc))
         else:
-            self.direction += random.choice(range(-180, 181))
-            #print("No. I'd be driving off the road.")
+            self.drive(speed=speed, direction=random.choice(range(-180, 181)))
 
 
