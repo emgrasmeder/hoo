@@ -1,5 +1,5 @@
 from hoo import roads
-
+import random
 
 class Car:
     def __init__(self, road=None):
@@ -48,7 +48,7 @@ class Car:
                                                       [x_loc, y_loc]]):
             self.x_loc, self.y_loc = x_loc, y_loc
         else:
-            self.direction += 30
+            self.direction += random.choice(range(-180, 181))
             #print("No. I'd be driving off the road.")
 
 
