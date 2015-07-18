@@ -42,5 +42,13 @@ class Car:
         x_dist, y_dist = self.dist_premultiplier(self.direction,
                                                  distance=speed)
 
-        self.x_loc += x_dist
-        self.y_loc += y_dist
+        x_loc = self.x_loc + x_dist
+        y_loc = self.y_loc + y_dist
+        if not self.road.out_of_bounds(proposed_line=[[self.x_loc, self.y_loc],
+                                                      [x_loc, y_loc]]):
+            self.x_loc, self.y_loc = x_loc, y_loc
+        else:
+            pass
+            #print("No. I'd be driving off the road.")
+
+

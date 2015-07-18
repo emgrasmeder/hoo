@@ -28,14 +28,30 @@ class Test_out_of_bounds(TestCase):
         car.road.paved_area["bottom_right"] = (100, -100)
         for i in range(1000):
             car.drive(direction=0)
-            self.assertLess(car.x_loc, 50)
+            self.assertLess(car.x_loc, 100)
             self.assertEqual(car.y_loc, 0)
 
         for i in range(1000):
             car.drive(direction=180)
-            self.assertGreater(car.x_loc, -50)
+            self.assertGreater(car.x_loc, -100)
             self.assertEqual(car.y_loc, 0)
 
+class Test_slope(TestCase):
+    def test_slope_of_one(self):
+        slope = roads.Road().slope
+        self.assertEqual(1, slope((0, 0), (1, 1)))
+
+    def test_slope_of_negative_one(self):
+        slope = roads.Road().slope
+        self.assertEqual(-1, slope((0, 1), (1, 0)))
+
+    def test_slope_of_zero(self):
+        slope = roads.Road().slope
+        self.assertEqual(0, slope((1, 1), (1, 1)))
+
+    def test_undefined_slope(self):
+        slope = roads.Road().slope
+        self.assertEqual("undefined", slope((0, 0), (0, 1)))
 
 
 
