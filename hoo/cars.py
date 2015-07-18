@@ -1,17 +1,35 @@
 from hoo import roads
 import random
 
+
 class Car:
     def __init__(self, road=None):
 
         self.road = road
         self.x_loc = 0
         self.y_loc = 0
+        self.loc = (self.x_loc, self.y_loc)
         self.speed = 0
         self.direction = 0
 
         if not self.road:
             self.road = roads.Road()
+            self.road.register(self)
+        self.check_location()
+
+    def check_location(self):
+        for loc in self.detect_nearby():
+            if loc == self.loc:
+                self.x_loc += random.choice(range(-10, 11))
+                self.y_loc += random.choice(range(-10, 11))
+                self.check_location()
+
+    def detect_nearby(self):
+        """
+        Return an exhaustive list of all "nearby" cars on the road.
+        """
+        nearby_cars = self.road.list_cars(radius=3)
+        return nearby_cars
 
     def dist_premultiplier(self, degrees, distance):
         from math import sin, cos, radians

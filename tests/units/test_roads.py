@@ -52,6 +52,11 @@ class Test_slope(TestCase):
         self.assertEqual("undefined", slope((0, 0), (0, 1)))
 
 
+class Test_registration(TestCase):
+    def test_roads_have_registry_of_cars_on_them(self):
+        road = roads.Road()
+        car = cars.Car(road=road)
+        self.assertIn(car, road.registry)
 
 # class Test_Instantiate(TestCase):
 #     def test_only_one_pavement_can_occupy_a_space(self):

@@ -32,7 +32,6 @@ class Test_Car_exists_in_space_time_continuum(TestCase):
         self.assertNotEqual((car1.x_loc, car1.y_loc),
                             (car2.x_loc, car2.y_loc))
 
-
     def test_drive_distance_is_steps_times_size(self):
         fiat = cars.Car()
         mercedes = cars.Car()
@@ -49,10 +48,31 @@ class Test_Car_exists_in_space_time_continuum(TestCase):
 
     def test_drive_direction_affects_x_and_y_magnitues(self):
         accord = cars.Car()
-        accord.direction=30
+        accord.direction = 30
         accord.drive(speed=109.8)
         self.assertEqual(round(accord.x_loc), 95)
         self.assertEqual(round(accord.y_loc), 55)
+
+
+class Test_check_location(TestCase):
+    def test_instantiating_two_cars_in_same_location_fails(self):
+        car1 = cars.Car()
+        car2 = cars.Car()
+        self.assertEqual(car1.loc, (0, 0))
+        self.assertNotEqual(car2.loc, (0, 0))
+
+class Test_detect_nearby(TestCase):
+    def test_cars_cant_exist_at_the_same_point(self):
+        car1 = cars.Car()
+        car2 = cars.Car()
+        self.assertNotEqual(car1.loc, car2.loc)
+
+    def test_one_car_will_not_drive_into_a_parked_car(self):
+        self.assertTrue(False)
+
+    def test_cars_avoid_head_on_collision(self):
+        self.assertTrue(False)
+
 
 
 if __name__ == "__main__":
