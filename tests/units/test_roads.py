@@ -56,7 +56,20 @@ class Test_registration(TestCase):
     def test_roads_have_registry_of_cars_on_them(self):
         road = roads.Road()
         car = cars.Car(road=road)
+        car2 = cars.Car(road=road)
         self.assertIn(car, road.registry)
+        self.assertIn(car2, road.registry)
+
+    def test_registry_keeps_track_of_cars_even_as_they_move(self):
+        road = roads.Road()
+        car = cars.Car(road=road)
+        self.assertEqual(road.registry[0].loc, car.loc)
+        print(car.loc)
+        car.drive()
+        print(car.loc)
+
+        self.assertEqual(road.registry[0].loc, car.loc)
+
 
 # class Test_Instantiate(TestCase):
 #     def test_only_one_pavement_can_occupy_a_space(self):

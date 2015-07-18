@@ -15,6 +15,7 @@ class Road:
 
     def register(self, registrant):
         self.registry.append(registrant)
+        # print("registered cars: {}".format(self.registry))
 
     def out_of_bounds(self, proposed_line):
         """
@@ -56,5 +57,5 @@ class Road:
                         self.paved_area["bottom_left"]]
         return(left_bound, top_bound, right_bound, bottom_bound)
 
-    def list_cars(self, radius=2):
-        return [1,2,3]
+    def list_cars(self):
+        return self.registry

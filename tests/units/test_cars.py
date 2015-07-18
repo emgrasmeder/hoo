@@ -1,5 +1,5 @@
 from unittest import TestCase, main
-from hoo import cars
+from hoo import cars, roads
 
 
 class TestCarBasicFunctionality(TestCase):
@@ -56,15 +56,26 @@ class Test_Car_exists_in_space_time_continuum(TestCase):
 
 class Test_check_location(TestCase):
     def test_instantiating_two_cars_in_same_location_fails(self):
-        car1 = cars.Car()
-        car2 = cars.Car()
+        road = roads.Road()
+        car1 = cars.Car(road=road)
+        car2 = cars.Car(road=road)
         self.assertEqual(car1.loc, (0, 0))
         self.assertNotEqual(car2.loc, (0, 0))
 
+
+class Test_car_too_close(TestCase):
+    def test_car_wont_drive_into_parked_car(self):
+        road = roads.Road()
+        moving_car = cars.Car(road=road)
+        parked_car = cars.Car(road=road)
+        moving_car.set_location(0, 0)
+        parked_car.set_location(2, 2)
+
 class Test_detect_nearby(TestCase):
     def test_cars_cant_exist_at_the_same_point(self):
-        car1 = cars.Car()
-        car2 = cars.Car()
+        road = roads.Road()
+        car1 = cars.Car(road)
+        car2 = cars.Car(road)
         self.assertNotEqual(car1.loc, car2.loc)
 
     def test_one_car_will_not_drive_into_a_parked_car(self):
