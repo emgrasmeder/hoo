@@ -13,4 +13,4 @@ In this project, the agents are, for the most part, cars on a road. Each car is 
 This project is being written in and only supported for Python 3. 
 Some of the possible dependencies are: 
 - python3
-- shapely
+- [Shapely](https://github.com/Toblerity/Shapely)
