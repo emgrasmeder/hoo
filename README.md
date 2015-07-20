@@ -14,3 +14,7 @@ This project is being written in and only supported for Python 3.
 Some of the possible dependencies are: 
 - python3
 - [Shapely](https://github.com/Toblerity/Shapely)
+  - `sudo pip3 install shapely
+  - Libgeos
+    - sudo apt-get install libgeos-dev
+
