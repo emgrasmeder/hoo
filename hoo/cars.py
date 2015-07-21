@@ -1,6 +1,6 @@
 from hoo import roads
 import random
-
+from shapely.geometry import Point, LineString
 
 class Car:
     def __init__(self, road=None):
@@ -8,6 +8,7 @@ class Car:
         self.road = road
         self.speed = 0
         self.direction = 0
+        self.safe_distance = 2
         self.set_location(0, 0)
         if not self.road:
             self.road = roads.Road()
@@ -18,7 +19,6 @@ class Car:
         self.loc = (x, y)
         self.x_loc = self.loc[0]
         self.y_loc = self.loc[1]
-
 
     def set_safe_location(self):
         for car in self.detect_nearby():
@@ -34,10 +34,14 @@ class Car:
         nearby_cars = self.road.list_cars()
         return nearby_cars
 
-    def car_too_close(self):
+    def car_too_close(self, landing_spot):
         """
         """
-        pass
+        my_danger_path = (LineString([(self.loc),
+                                      (landing_spot)])
+                          .buffer(self.safe_distance))
+        return any([Point(other_car.loc).buffer(1).intersects(my_danger_path)
+                    for other_car in detect_nearby()]
 
 
     def dist_premultiplier(self, degrees, distance):
@@ -76,7 +80,7 @@ class Car:
                                                         self.y_loc],
                                                        [x_loc, y_loc]])
         and
-        not self.car_too_close()
+        not self.car_too_close(proposed_landing_spot=(x_loc, y_loc))
         and
         True):
 
