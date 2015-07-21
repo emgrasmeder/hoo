@@ -1,2 +1,4 @@
 *.pyc
-
+resources/logs/*
+Untitled*.ipynb
+resources/temp_log.csv
