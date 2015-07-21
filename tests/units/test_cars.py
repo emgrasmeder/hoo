@@ -116,6 +116,20 @@ class Test_detect_nearby(TestCase):
         self.assertEqual(car1.loc, (0, 0))
         self.assertEqual(car2.loc, (0, 0))
 
+class Test_log(TestCase):
+    def test_car_makes_temp_log_dot_csv_if_none_exists(self):
+        car = cars.Car()
+        self.assertTrue(car.logging)
+        from time import time
+        import os
+        dir = os.path.dirname(__file__)
+        path = os.path.join(dir, "../../resources/")
+        filename = str(int(time())) + ".csv"
+        car.log(filename=filename)
+        self.assertIsNotNone(open(path + filename))
+
+
+
 
 if __name__ == "__main__":
     main()

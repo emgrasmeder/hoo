@@ -1,10 +1,19 @@
 from hoo import roads
 import random
 from shapely.geometry import Point, LineString
+from datetime import datetime
+import csv
+import os
+
 
 class Car:
-    def __init__(self, road=None):
+    logging = True
+    _id = 0
 
+    def __init__(self, road=None):
+        self._id = Car._id
+        Car._id += 1
+        self.creation_time = datetime.now().strftime("%Y%m%d%H%M%S")
         self.road = road
         self.speed = 0
         self.direction = 0
@@ -19,6 +28,19 @@ class Car:
         self.loc = (x, y)
         self.x_loc = self.loc[0]
         self.y_loc = self.loc[1]
+
+    def log(self, filename="temp_log.csv"):
+        timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
+        dir = os.path.dirname(__file__)
+        path = os.path.join(dir, "../resources/logs/")
+        with open(path + filename, "a+") as f:
+            record = [timestamp, timestamp-self.creation_time,
+                      self._id,
+                      self.x_loc, self.y_loc,
+                      ]
+            writer = csv.writer(f, lineterminator='\n')
+            writer.writerow(record)
+
 
     def set_safe_location(self):
         for car in self.detect_nearby():
@@ -89,9 +111,9 @@ class Car:
         True):
             # TODO HERE: Write out to CSV.  Also do it at the top of the file
             self.set_location(x_loc, y_loc)
+            self.log()
 
             # print("(x,y) = ({},{})".format(self.x_loc, self.y_loc))
         else:
             self.drive(speed=speed, direction=random.choice(range(-180, 181)))
-
 
