@@ -24,6 +24,7 @@ class Car:
             self.road = roads.Road()
         self.road.register(self)
         self.set_safe_location()
+        self.log()
 
     def set_location(self, x, y):
         self.loc = (x, y)
@@ -113,7 +114,6 @@ class Car:
         not self.car_too_close(landing_spot=(x_loc, y_loc))
         and
         True):
-            # TODO HERE: Write out to CSV.  Also do it at the top of the file
             self.set_location(x_loc, y_loc)
             self.log()
 
