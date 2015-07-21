@@ -13,7 +13,7 @@ I like to imagine what the world will be like when cars can drive themselves, bu
 
 ### What is Agent Based Modeling?
 ###### (Skip to [Cases](https://github.com/emmagras/hoo-will-build-the-roads/blob/master/README.md#cases))
-Agent based modeling is a simulation technique where the simulator creates a number of autonomous `agents` who can interact woith each other in various ways. Typically the agents have a number of parameters that can be altered to study the impact of different variables in the system. 
+Agent based modeling is a simulation technique where the simulator creates a number of autonomous `agents` who can interact with each other in various ways. Typically the agents have a number of parameters that can be altered to study the impact of different variables in the system. 
 
 In this project, the agents are, for the most part, cars on a road. Each car is an instance of an object which has a speed, a direction, and a location. We can then, for instance give each car a `following_distance` parameter and study the effects on traffic of increasing or decreasing. 
 
