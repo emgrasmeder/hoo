@@ -65,6 +65,15 @@ class Test_check_location(TestCase):
 
 
 class Test_car_too_close(TestCase):
+    def test_cars_can_actually_drive_without_freezing_in_fear(self):
+        road = roads.Road()
+        car1 = cars.Car(road)
+        car2 = cars.Car(road)
+        car1.set_location(-10, -10)
+        car2.set_location(10, 10)
+        car1.drive(1)
+        car2.drive(1)
+
     def test_car_dodges_randomly_instead_of_hitting_parked_car(self):
         road = roads.Road()
         moving_car = cars.Car(road=road)

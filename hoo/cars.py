@@ -8,7 +8,7 @@ class Car:
         self.road = road
         self.speed = 0
         self.direction = 0
-        self.safe_distance = 2
+        self.safe_distance = 1
         self.set_location(0, 0)
         if not self.road:
             self.road = roads.Road()
@@ -40,8 +40,12 @@ class Car:
         my_danger_path = (LineString([(self.loc),
                                       (landing_spot)])
                           .buffer(self.safe_distance))
-        return any([Point(other_car.loc).buffer(1).intersects(my_danger_path)
-                    for other_car in detect_nearby()]
+        car_too_close = any([Point(other_car.loc)
+                             .buffer(1)
+                             .intersects(my_danger_path)
+                             for other_car in self.detect_nearby()
+                             if other_car != self])
+        return(car_too_close)
 
 
     def dist_premultiplier(self, degrees, distance):
@@ -80,7 +84,7 @@ class Car:
                                                         self.y_loc],
                                                        [x_loc, y_loc]])
         and
-        not self.car_too_close(proposed_landing_spot=(x_loc, y_loc))
+        not self.car_too_close(landing_spot=(x_loc, y_loc))
         and
         True):
 
