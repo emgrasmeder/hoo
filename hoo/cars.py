@@ -9,6 +9,7 @@ import os
 class Car:
     logging = True
     _id = 0
+    logfile = "temp_log.csv"
 
     def __init__(self, road=None):
         self._id = Car._id
@@ -29,12 +30,15 @@ class Car:
         self.x_loc = self.loc[0]
         self.y_loc = self.loc[1]
 
-    def log(self, filename="temp_log.csv"):
-        timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
+    def log(self, filename=None):
+        if filename is None:
+            filename = Car.logfile
         dir = os.path.dirname(__file__)
         path = os.path.join(dir, "../resources/logs/")
+
         with open(path + filename, "a+") as f:
-            record = [timestamp, timestamp-self.creation_time,
+            timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
+            record = [timestamp, str(int(timestamp)-int(self.creation_time)),
                       self._id,
                       self.x_loc, self.y_loc,
                       ]

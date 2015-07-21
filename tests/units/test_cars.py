@@ -123,10 +123,11 @@ class Test_log(TestCase):
         from time import time
         import os
         dir = os.path.dirname(__file__)
-        path = os.path.join(dir, "../../resources/")
+        path = os.path.join(dir, "../../resources/logs/")
         filename = str(int(time())) + ".csv"
         car.log(filename=filename)
-        self.assertIsNotNone(open(path + filename))
+        with open(path + filename) as f:
+            self.assertIsNotNone(f)
 
 
 
