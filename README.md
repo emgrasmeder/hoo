@@ -18,24 +18,29 @@ In this project, the agents are, for the most part, cars on a road. Each car is 
 
 ### Cases
 These cases can be vague, and readers are invited to contribute. Exploring cases with a well reasoned theory behind it is important, but half of the point here is to have fun. 
+
 1. 
-  - Question: Can a minority of autonomous cars on the road respond to traffic patterns such that they break up traffic jams?
+  - Question:
+    - Can a minority of autonomous cars on the road respond to traffic patterns such that they break up traffic jams?
   - Considerations: 
-    1. Number of cars on the road (should apply to all models)
-    2. Autonomous / Conventional Ratio of cars on the road (should apply to all models)
-    3. Severity/type of traffic upset (lane closed, one-time full stop)
+    - Number of cars on the road (should apply to all models)
+    - Autonomous / Conventional Ratio of cars on the road (should apply to all models)
+    - Severity/type of traffic upset (lane closed, one-time full stop)
+
 2. 
-  - Question: What can we do about troll cars and troll pedestrians who abuse the safety features of autonomous driving
+  - Question: 
+    - What can we do about troll cars and troll pedestrians who abuse the safety features of autonomous driving
   - Considerations:
-    1. Costly punishment (I spend `X` dollars to steal `p*X` (such that `0<p<1`) from you as punishment
-    2. Toll roads with increased costs for non-autonomous cars in certain lanes
+    - Costly punishment (I spend `X` dollars to steal `p*X` (such that `0<p<1`) from you as punishment
+    - Toll roads with increased costs for non-autonomous cars in certain lanes
+
 3. 
-  - Question: What are the best institutions for facilitating speed on the road
-    - What implications do the various institutions have on nearby real estate
+  - Question: 
+    - What are the best institutions for facilitating speed on the road. What implications do the various institutions have on nearby real estate
   - Considerations:
-    1. Marginal cost of driving as a function of the lane a car is in, how fast, its size, etc
-    2. Cars bid for space on the road, pay other cars to move out of the way
-    3. What happens w/ accessibility to real estate in a busy area (for example if cars bid for traffic signals to change and homeowners can't costlessly get out of their neighborhood) 
+    - Marginal cost of driving as a function of the lane a car is in, how fast, its size, etc
+    - Cars bid for space on the road, pay other cars to move out of the way
+    - What happens w/ accessibility to real estate in a busy area (for example if cars bid for traffic signals to change and homeowners can't costlessly get out of their neighborhood) 
 
 ### Dependencies
 This project is being written in and only supported for Python 3. 
