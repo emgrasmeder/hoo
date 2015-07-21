@@ -1,10 +1,10 @@
 ## Welcome to Hoo
 #### A Playground Agent Based Model Repository
 
-1. Intro to `Hoo`
-2. Intro to *Agent Based Modeling*
+1. [Intro to `Hoo`](https://github.com/emmagras/hoo-will-build-the-roads/blob/master/README.md#introduction)
+2. [Intro to *Agent Based Modeling*](https://github.com/emmagras/hoo-will-build-the-roads/blob/master/README.md#what-is-agent-based-modeling)
 3. [Cases to Explore](https://github.com/emmagras/hoo-will-build-the-roads/blob/master/README.md#cases)
-3. Dependencies
+3. [Dependencies](https://github.com/emmagras/hoo-will-build-the-roads/blob/master/README.md#dependencies)
 
 ### Introduction
 
