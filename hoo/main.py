@@ -1,6 +1,7 @@
 import argparse
 from simulation import simulate
 
+
 def parse_args(argv=None):
     parser = argparse.ArgumentParser(
         description=__doc__,
@@ -13,12 +14,12 @@ def parse_args(argv=None):
                         # action="store_true",
                         help="Specify the number of agents to instantiate")
 
-
     if argv is not None:  # to mock terminal input, for functional tests
         args = parser.parse_args(argv)
     else:
         args = parser.parse_args()
     return args
+
 
 def main(argv=None):
     params = parse_args(argv)
@@ -27,7 +28,6 @@ def main(argv=None):
                         .format(params.agents))
     else:
         simulate(**params.__dict__)
-
 
 
 if __name__ == "__main__":
