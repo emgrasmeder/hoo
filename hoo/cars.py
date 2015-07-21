@@ -12,7 +12,7 @@ class Car:
         if not self.road:
             self.road = roads.Road()
         self.road.register(self)
-        self.check_location()
+        self.set_safe_location()
 
     def set_location(self, x, y):
         self.loc = (x, y)
@@ -20,12 +20,12 @@ class Car:
         self.y_loc = self.loc[1]
 
 
-    def check_location(self):
+    def set_safe_location(self):
         for car in self.detect_nearby():
             if car != self and car.loc == self.loc:
                 self.set_location(random.choice(range(-10, 11)),
                                   random.choice(range(-10, 11)))
-                self.check_location()
+                self.set_safe_location()
 
     def detect_nearby(self):
         """

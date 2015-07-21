@@ -1,5 +1,6 @@
 from unittest import TestCase, main
 from hoo import cars, roads
+import random
 
 
 class TestCarBasicFunctionality(TestCase):
@@ -64,12 +65,14 @@ class Test_check_location(TestCase):
 
 
 class Test_car_too_close(TestCase):
-    def test_car_wont_drive_into_parked_car(self):
+    def test_car_dodges_randomly_instead_of_hitting_parked_car(self):
         road = roads.Road()
         moving_car = cars.Car(road=road)
         parked_car = cars.Car(road=road)
         moving_car.set_location(0, 0)
-        parked_car.set_location(2, 2)
+        parked_car.set_location(2, 0)
+        moving_car.drive(10)
+        self.assertNotEqual(moving_car.loc, (10, 0))
 
 class Test_detect_nearby(TestCase):
     def test_cars_cant_exist_at_the_same_point(self):
@@ -79,11 +82,30 @@ class Test_detect_nearby(TestCase):
         self.assertNotEqual(car1.loc, car2.loc)
 
     def test_one_car_will_not_drive_into_a_parked_car(self):
-        self.assertTrue(False)
+        road = roads.Road()
+        moving_car = cars.Car(road=road)
+        parked_car = cars.Car(road=road)
+        moving_car.set_location(0, 0)
+        parked_car.set_location(2, 0)
+        moving_car.drive(10)
+        self.assertNotEqual(moving_car.loc, (10, 0))
 
-    def test_cars_avoid_head_on_collision(self):
-        self.assertTrue(False)
-
+    def test_avoid_head_on_collision_results_in_immobile_cars(self):
+        road = roads.Road()
+        car1 = cars.Car(road=road)
+        car2 = cars.Car(road=road)
+        car1.set_location(-5, 0)
+        car2.set_location(5, 0)
+        car1.drive(5)
+        car2.drive(-5)
+        self.assertEqual(car1.loc, car2.loc)
+        self.assertEqual(car1.loc, (0, 0))
+        self.assertEqual(car2.loc, (0, 0))
+        car1.drive(random.choice(range(-10, 11)))
+        car2.drive(random.choice(range(-10, 11)))
+        self.assertEqual(car1.loc, car2.loc)
+        self.assertEqual(car1.loc, (0, 0))
+        self.assertEqual(car2.loc, (0, 0))
 
 
 if __name__ == "__main__":
