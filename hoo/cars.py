@@ -38,6 +38,8 @@ class Car:
         self.y_loc = self.loc[1]
 
     def log(self, action, filename=None, *args, **kwargs):
+        curframe = inspect.currentframe()
+        action = inspect.getouterframes(curframe, 2)[1][3]
         if filename is None:
             filename = Car.logfile
         dir = os.path.dirname(__file__)
@@ -115,13 +117,11 @@ class Car:
         if (not self.road.out_of_bounds(proposed_line=[[self.x_loc,
                                                         self.y_loc],
                                                        [x_loc, y_loc]])
-           and
-           not self.car_too_close(landing_spot=(x_loc, y_loc))
-           and
-           True):
+                and not self.car_too_close(landing_spot=(x_loc, y_loc))
+                and True):
+
             self.set_location(x_loc, y_loc)
             self.log()
 
-            # print("(x,y) = ({},{})".format(self.x_loc, self.y_loc))
         else:
             self.drive(speed=speed, direction=random.choice(range(-180, 181)))
