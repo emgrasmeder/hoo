@@ -4,6 +4,7 @@ from shapely.geometry import Point, LineString
 from datetime import datetime
 import csv
 import os
+import inspect
 
 
 class Car:
@@ -26,12 +27,17 @@ class Car:
         self.set_safe_location()
         self.log()
 
+    def do_action(self, *args, **kwargs):
+        curframe = inspect.currentframe()
+        action = inspect.getouterframes(curframe, 2)[1][3]
+        self.log(action, *args, **kwargs)
+
     def set_location(self, x, y):
         self.loc = (x, y)
         self.x_loc = self.loc[0]
         self.y_loc = self.loc[1]
 
-    def log(self, filename=None):
+    def log(self, action, filename=None, *args, **kwargs):
         if filename is None:
             filename = Car.logfile
         dir = os.path.dirname(__file__)
@@ -42,10 +48,10 @@ class Car:
             record = [timestamp, str(int(timestamp)-int(self.creation_time)),
                       self._id,
                       self.x_loc, self.y_loc,
+                      action,
                       ]
             writer = csv.writer(f, lineterminator='\n')
             writer.writerow(record)
-
 
     def set_safe_location(self):
         for car in self.detect_nearby():
@@ -73,7 +79,6 @@ class Car:
                              for other_car in self.detect_nearby()
                              if other_car != self])
         return(car_too_close)
-
 
     def dist_premultiplier(self, degrees, distance):
         from math import sin, cos, radians
@@ -110,14 +115,13 @@ class Car:
         if (not self.road.out_of_bounds(proposed_line=[[self.x_loc,
                                                         self.y_loc],
                                                        [x_loc, y_loc]])
-        and
-        not self.car_too_close(landing_spot=(x_loc, y_loc))
-        and
-        True):
+           and
+           not self.car_too_close(landing_spot=(x_loc, y_loc))
+           and
+           True):
             self.set_location(x_loc, y_loc)
             self.log()
 
             # print("(x,y) = ({},{})".format(self.x_loc, self.y_loc))
         else:
             self.drive(speed=speed, direction=random.choice(range(-180, 181)))
-
