@@ -37,7 +37,7 @@ class Car:
         self.x_loc = self.loc[0]
         self.y_loc = self.loc[1]
 
-    def log(self, action, filename=None, *args, **kwargs):
+    def log(self, filename=None, *args, **kwargs):
         curframe = inspect.currentframe()
         action = inspect.getouterframes(curframe, 2)[1][3]
         if filename is None:
@@ -103,10 +103,11 @@ class Car:
             y_dist = -1 * distance
         return x_dist, y_dist
 
-    def drive(self, speed=1, direction=None):
+    def drive(self, speed=1, direction=None, tries=0):
         """
         """
-
+        if tries >= 10:
+            return
         if isinstance(direction, int):
             self.direction = direction
         x_dist, y_dist = self.dist_premultiplier(self.direction,
@@ -122,6 +123,8 @@ class Car:
 
             self.set_location(x_loc, y_loc)
             self.log()
-
         else:
-            self.drive(speed=speed, direction=random.choice(range(-180, 181)))
+            self.drive(speed=speed,
+                       direction=random.choice(range(-180, 181)),
+                       tries=tries+1
+                       )
