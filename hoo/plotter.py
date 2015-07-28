@@ -7,6 +7,12 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+def drawArrow(x, y, w, h, i):
+    a = plt.Arrow(x,y,w,h,
+                  width=0.05,zorder=i+1)
+    a.set_facecolor('0.7')
+    a.set_edgecolor('w')
+
 def getArrow(p1,p2,i):
     # we need to subtract some from each end
     # slope = m
@@ -22,17 +28,17 @@ def getArrow(p1,p2,i):
         dx = dr*np.cos(theta)
         dy = dr*np.sin(theta)
     
-    if w < 0:  dx *= -1
-    if h < 0:  dy *= -1
+    if w < 0:
+        dx *= -1
+    if h < 0:
+        dy *= -1
     w -= 2*dx
     h -= 2*dy
     x = p1.x + dx
     y = p1.y + dy
     
-    a = plt.Arrow(x,y,w,h,
-                  width=0.05,zorder=i+1)
-    a.set_facecolor('0.7')
-    a.set_edgecolor('w')
+    a = draw_arrow(x, y, w, h, i)
+    
     return a
 
 class Point:
