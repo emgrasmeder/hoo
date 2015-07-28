@@ -56,14 +56,14 @@ def main(count=10):
     points = make_points(count)
         
     ax = plt.axes()
+    ax.set_xlim(-0.01,1.01)
+    ax.set_ylim(-0.01,1.01)
     for i, point in enumerate(points):  
         if i:
             arrow = getArrow(points[i-1], point, i)
             ax.add_patch(arrow)
         plt.scatter(point.x, point.y, s=250, zorder=1)
 
-    ax.set_xlim(-0.01,1.01)
-    ax.set_ylim(-0.01,1.01)
-
+    
 if __name__ == "__main__":
     main()
