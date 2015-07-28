@@ -7,11 +7,12 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-def drawArrow(x, y, w, h, i):
+def draw_arrow(x, y, w, h, i):
     a = plt.Arrow(x,y,w,h,
                   width=0.05,zorder=i+1)
     a.set_facecolor('0.7')
     a.set_edgecolor('w')
+    return a
 
 def getArrow(p1,p2,i):
     # we need to subtract some from each end
