@@ -48,11 +48,9 @@ class Point:
         self.y = y
 
 
-def main():
-    
-    N = 10
-    L = np.random.uniform(size=N*2)
-    point_list = [Point(L[i], L[i+1]) for i in range(0, N*2, 2)]
+def main(count=10):
+    L = np.random.uniform(size=count*2)
+    point_list = [Point(L[i], L[i+1]) for i in range(0, count*2, 2)]
         
     ax = plt.axes()
     for i,pt in enumerate(point_list):  
