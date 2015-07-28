@@ -47,10 +47,13 @@ class Point:
         self.x = x
         self.y = y
 
-
-def main(count=10):
+def make_points(count):
     L = np.random.uniform(size=count*2)
     points = [Point(L[i], L[i+1]) for i in range(0, count*2, 2)]
+    return points
+
+def main(count=10):
+    points = make_points(count)
         
     ax = plt.axes()
     for i, point in enumerate(points):  
