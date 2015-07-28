@@ -50,14 +50,14 @@ class Point:
 
 def main(count=10):
     L = np.random.uniform(size=count*2)
-    point_list = [Point(L[i], L[i+1]) for i in range(0, count*2, 2)]
+    points = [Point(L[i], L[i+1]) for i in range(0, count*2, 2)]
         
     ax = plt.axes()
-    for i,pt in enumerate(point_list):  
+    for i, point in enumerate(points):  
         if i:
-            arrow = getArrow(point_list[i-1], pt, i)
+            arrow = getArrow(points[i-1], point, i)
             ax.add_patch(arrow)
-        plt.scatter(pt.x, pt.y, s=250, zorder=1)
+        plt.scatter(point.x, point.y, s=250, zorder=1)
 
     ax.set_xlim(-0.01,1.01)
     ax.set_ylim(-0.01,1.01)
