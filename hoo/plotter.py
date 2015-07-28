@@ -47,16 +47,22 @@ class Point:
         self.x = x
         self.y = y
 
-N = 10
-L = np.random.uniform(size=N*2)
-pL = [Point(L[i], L[i+1]) for i in range(0, N*2, 2)]
-    
-ax = plt.axes()
-for i,p in enumerate(pL):  
-    if i:
-        a = getArrow(pL[i-1],p,i)
-        ax.add_patch(a)
-    plt.scatter(p.x,p.y,s=250,zorder=1)
 
-ax.set_xlim(-0.01,1.01)
-ax.set_ylim(-0.01,1.01)
+def main():
+    
+    N = 10
+    L = np.random.uniform(size=N*2)
+    point_list = [Point(L[i], L[i+1]) for i in range(0, N*2, 2)]
+        
+    ax = plt.axes()
+    for i,pt in enumerate(point_list):  
+        if i:
+            arrow = getArrow(point_list[i-1], pt, i)
+            ax.add_patch(arrow)
+        plt.scatter(pt.x, pt.y, s=250, zorder=1)
+
+    ax.set_xlim(-0.01,1.01)
+    ax.set_ylim(-0.01,1.01)
+
+if __name__ == "__main__":
+    main()
