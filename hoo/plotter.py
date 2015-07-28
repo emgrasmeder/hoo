@@ -42,15 +42,13 @@ def getArrow(p1,p2,i):
     return a
 
 class Point:
-    pass
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
 
 N = 10
 L = np.random.uniform(size=N*2)
-pL = list()
-for i in range(0,N*2,2):
-    p = Point()
-    p.x,p.y = L[i],L[i+1]
-    pL.append(p)
+pL = [Point(L[i], L[i+1]) for i in range(0, N*2, 2)]
     
 ax = plt.axes()
 for i,p in enumerate(pL):  
