@@ -7,18 +7,18 @@
 3. [Dependencies](https://github.com/emmagras/hoo-will-build-the-roads/blob/master/README.md#dependencies)
 
 ### Introduction
-###### (Skip to [Into to Agent Based Modeling](https://github.com/emmagras/hoo-will-build-the-roads/blob/master/README.md#what-is-agent-based-modeling), [Back to top](https://github.com/emmagras/hoo-will-build-the-roads/blob/master/README.md#welcome-to-hoo))
+###### (Skip to [Into to Agent Based Modeling](https://github.com/emmagras/hoo-will-build-the-roads/blob/master/README.md#what-is-agent-based-modeling),    [Back to top](https://github.com/emmagras/hoo-will-build-the-roads/blob/master/README.md#welcome-to-hoo))
 My main desire in this project is to give my frustrated Northern Virginia commuter thoughts some outlet.
 I like to imagine what the world will be like when cars can drive themselves, but there are quite a number of roadway institutions to choose from regarding how traffic flows in a more automated world. While we can't be certain we'll ever find the global maximum, we can use agent based modeling to explore a number of the imaginable frameworks and seek to understand the set of local maxima possible within each.
 
 ### What is Agent Based Modeling?
-###### (Skip to [Cases](https://github.com/emmagras/hoo-will-build-the-roads/blob/master/README.md#cases)[Back to top](https://github.com/emmagras/hoo-will-build-the-roads/blob/master/README.md#welcome-to-hoo))
+###### (Skip to [Cases](https://github.com/emmagras/hoo-will-build-the-roads/blob/master/README.md#cases),  [Back to top](https://github.com/emmagras/hoo-will-build-the-roads/blob/master/README.md#welcome-to-hoo))
 Agent based modeling is a simulation technique where the simulator creates a number of autonomous `agents` who can interact with each other in various ways. Typically the agents have a number of parameters that can be altered to study the impact of different variables in the system. 
 
 In this project, the agents are, for the most part, cars on a road. Each car is an instance of an object which has a speed, a direction, and a location. We can then, for instance give each car a `following_distance` parameter and study the effects on traffic of increasing or decreasing. 
 
 ### Cases
-###### (Skip to [Dependencies](https://github.com/emmagras/hoo-will-build-the-roads/blob/master/README.md#dependencies)[Back to top](https://github.com/emmagras/hoo-will-build-the-roads/blob/master/README.md#welcome-to-hoo))
+###### (Skip to [Dependencies](https://github.com/emmagras/hoo-will-build-the-roads/blob/master/README.md#dependencies),  [Back to top](https://github.com/emmagras/hoo-will-build-the-roads/blob/master/README.md#welcome-to-hoo))
 These cases can be vague, and readers are invited to contribute. Exploring cases with a well reasoned theory behind it is important, but half of the point here is to have fun. 
 
 1. 
