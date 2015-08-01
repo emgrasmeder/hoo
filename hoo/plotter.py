@@ -15,14 +15,11 @@ def draw_arrow(x, y, w, h, i):
     return a
 
 def getArrow(p1,p2,i):
-    # we need to subtract some from each end
-    # slope = m
     w = p2.x - p1.x
     h = p2.y - p1.y
     
-    dr = 0.03
     if w == 0:
-        dy = dr
+        dy = 0.03
         dx = 0
     else:
         theta = np.arctan(np.abs(h/w))
