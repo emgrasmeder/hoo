@@ -22,8 +22,8 @@ def getArrow(p1,p2,i):
         dx = 0
     else:
         theta = np.arctan(np.abs(h/w))
-        dx = dr*np.cos(theta)
-        dy = dr*np.sin(theta)
+        dx = 0.03*np.cos(theta)
+        dy = 0.03*np.sin(theta)
 
     if w < 0:
         dx *= -1
