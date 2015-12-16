@@ -17,11 +17,14 @@ Agent based modeling is a simulation technique where the simulator creates a num
 
 In this project, the agents are, for the most part, cars on a road. Each car is an instance of an object which has a speed, a direction, and a location. We can then, for instance give each car a `following_distance` parameter and study the effects on traffic of increasing or decreasing. 
 
+Without careful forethought, it's always possible to make ineffective policy decision in the name of good or progress. Agent Based Models help provide visible examples to counterintuitive tendencies, like [Braess' paradox](https://en.wikipedia.org/wiki/Braess%27_paradox) which explains that **adding a road to a congested road traffic network could increase overall journey time.** This project will use game theory and Python's Agent Based and statistical modelling capabilities to test hypotheses about how we can best construct our future roads.
+
 ### Cases
 ###### (Skip to [Dependencies](https://github.com/emmagras/hoo-will-build-the-roads/blob/master/README.md#dependencies),  [Back to top](https://github.com/emmagras/hoo-will-build-the-roads/blob/master/README.md#welcome-to-hoo))
 These cases can be vague, and readers are invited to contribute. Exploring cases with a well reasoned theory behind it is important, but half of the point here is to have fun. 
 
 Each of these case studies can be parameterized with varying agent population sizes and densities, ratios of autonomous to non-autonomous cars on the road, and the configuration of the roads. 
+
 1. 
   - Question:
     - Can a minority of autonomous cars on the road respond to traffic patterns such that they break up traffic jams?
