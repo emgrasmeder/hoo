@@ -21,24 +21,21 @@ In this project, the agents are, for the most part, cars on a road. Each car is 
 ###### (Skip to [Dependencies](https://github.com/emmagras/hoo-will-build-the-roads/blob/master/README.md#dependencies),  [Back to top](https://github.com/emmagras/hoo-will-build-the-roads/blob/master/README.md#welcome-to-hoo))
 These cases can be vague, and readers are invited to contribute. Exploring cases with a well reasoned theory behind it is important, but half of the point here is to have fun. 
 
+Each of these case studies can be parameterized with varying agent population sizes and densities, ratios of autonomous to non-autonomous cars on the road, and the configuration of the roads. 
 1. 
   - Question:
     - Can a minority of autonomous cars on the road respond to traffic patterns such that they break up traffic jams?
-  - Considerations: 
-    - Number of cars on the road (should apply to all models)
-    - Autonomous / Conventional Ratio of cars on the road (should apply to all models)
-    - Severity/type of traffic upset (lane closed, one-time full stop)
 
 2. 
   - Question: 
-    - What can we do about troll cars and troll pedestrians who abuse the safety features of autonomous driving
+    - What can we do about non-autonomous cars and pedestrians who abuse the overly cautious safety features of autonomous driving
   - Considerations:
     - Costly punishment (I spend `X` dollars to steal `p*X` (such that `0<p<1`) from you as punishment
     - Toll roads with increased costs for non-autonomous cars in certain lanes
 
 3. 
   - Question: 
-    - What are the best institutions for facilitating speed on the road. What implications do the various institutions have on nearby real estate
+    - What are the various speed regulation rules on the road. What implications do they have on cars with smaller spending potentials, or even nearby real estate
   - Considerations:
     - Marginal cost of driving as a function of the lane a car is in, how fast, its size, etc
     - Cars bid for space on the road, pay other cars to move out of the way
