@@ -1,6 +1,8 @@
 ## Welcome to Hoo
 #### A Playground Agent Based Model Repository
 
+<Placeholder for a cute Owl (named Hoo?) who is the (so far, invisible) mascot for this project>
+
 1. [Intro to `Hoo`](https://github.com/emmagras/hoo-will-build-the-roads/blob/master/README.md#introduction)
 2. [Intro to *Agent Based Modeling*](https://github.com/emmagras/hoo-will-build-the-roads/blob/master/README.md#what-is-agent-based-modeling)
 3. [Cases to Explore](https://github.com/emmagras/hoo-will-build-the-roads/blob/master/README.md#cases)
