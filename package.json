@@ -1,0 +1,22 @@
+{
+  "name": "hoo-will-build-the-roads",
+  "version": "1.0.0",
+  "description": "emme grasmeder trying to do agent based modelling with mapbox",
+  "main": "lib/index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emmagras/hoo-will-build-the-roads.git"
+  },
+  "author": "emme grasmeder",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/emmagras/hoo-will-build-the-roads/issues"
+  },
+  "homepage": "https://github.com/emmagras/hoo-will-build-the-roads#readme"
+}
