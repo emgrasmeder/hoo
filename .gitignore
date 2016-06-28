@@ -2,3 +2,4 @@
 resources/logs/*
 Untitled*.ipynb
 resources/temp_log.csv
+node_modules/

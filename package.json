@@ -1,0 +1,30 @@
+{
+  "name": "hoo",
+  "version": "1.0.0",
+  "description": "emme grasmeder trying to do agent based modelling with mapbox",
+  "main": "lib/index.js",
+  "directories": {
+    "test": "test"
+  },
+  "devDependencies": {
+    "chai": "*",
+    "mocha": "*"
+  },
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emmagras/hoo.git"
+  },
+  "author": "emme grasmeder",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/emmagras/hoo/issues"
+  },
+  "homepage": "https://github.com/emmagras/hoo#readme",
+  "dependencies": {
+    "chai": "^3.5.0",
+    "mapbox": "^0.12.0"
+  }
+}
